@@ -1,3 +1,4 @@
+
 package in.ac.sharda.pizzaapplication.controller;
 
 import java.util.ArrayList;
@@ -10,14 +11,22 @@ import in.ac.sharda.pizzaapplication.domain.Product;
 
 @RestController
 public class ProductListController {
+	private int num=0;
+	public int getNum()
+	{
+		return num;
+	}
+
 
 	@GetMapping("/product/list")
 	public List<Product> products(){
 		List<Product> products = new ArrayList<>();
+		
 		for(int i = 1; i < 20; i++){
 			products.add(
 					new Product(i, i*10,"Name "+i,
 							"Desc "+i));
+			num +=num+1;
 		}
 		return products;
 	}
